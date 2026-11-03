@@ -144,10 +144,10 @@ export default function AgentDashboard() {
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar – conversations list */}
         <aside className="w-80 border-l border-slate-200 bg-white overflow-y-auto shrink-0">
-          {filtered.length === 0 && (
+          {conversations.length === 0 && (
             <p className="p-4 text-sm text-slate-400 text-center">אין שיחות</p>
           )}
-          {filtered.map((c) => (
+          {conversations.map((c) => (
             <button
               key={c.id}
               onClick={() => {

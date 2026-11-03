@@ -1,4 +1,4 @@
-import { Conversation, Message, CannedResponse, Survey, Agent } from "@chatty/shared";
+import { Conversation, Message, CannedResponse, Survey, Agent } from "../../../packages/shared/src";
 
 export const store = {
   conversations: [] as Conversation[],

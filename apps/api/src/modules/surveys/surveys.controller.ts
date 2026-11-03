@@ -1,6 +1,6 @@
 import { Controller, Post, Body } from "@nestjs/common";
 import { store } from "../../store";
-import { Survey } from "@chatty/shared";
+import { Survey } from "../../../../packages/shared/src";
 import { randomUUID } from "crypto";
 
 @Controller("surveys")

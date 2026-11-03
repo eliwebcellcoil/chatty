@@ -1,6 +1,6 @@
 import { Controller, Post, Body } from "@nestjs/common";
 import { store } from "../../store";
-import { Message, SenderType } from "@chatty/shared";
+import { Message, SenderType } from "../../../../packages/shared/src";
 import { randomUUID } from "crypto";
 
 @Controller("messages")

@@ -1,5 +1,5 @@
 import { Controller, Get } from "@nestjs/common";
-import { getVersionString, APP_VERSION, BUILD_NUMBER, BUILD_DATE } from "@chatty/shared";
+import { getVersionString, APP_VERSION, BUILD_NUMBER, BUILD_DATE } from "../../../packages/shared/src";
 
 @Controller()
 export class HealthController {
