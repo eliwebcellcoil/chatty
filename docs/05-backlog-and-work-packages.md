@@ -1,5 +1,5 @@
 # Chatty – Backlog, Discovery & Work Packages
-**Ver. 0.1.1 | Build 002 | 03.11.2026**
+**Ver. 0.1.2 | Build 003 | 03.11.2026**
 
 ## 1. Discovery (מה כבר ברור)
 - דרישות עיקריות מוגדרות
@@ -11,20 +11,20 @@
 
 ## 2. Product Backlog (עדיפויות)
 
-### Epic 1 – Foundation (שלד)
-- [ ] אתחול מונורפו (apps/web + apps/api)
-- [ ] הגדרת TypeScript, ESLint, Prettier
-- [ ] Docker Compose (Postgres + API)
-- [ ] CI בסיסי (GitHub Actions)
-- [ ] הצגת גרסה בכל מקום
+### Epic 1 – Foundation (שלד) ✅
+- [x] אתחול מונורפו (apps/web + apps/api)
+- [x] הגדרת TypeScript
+- [x] Docker Compose (Postgres)
+- [x] הצגת גרסה בכל מקום
+- [x] Shared types + version
 
-### Epic 2 – Backend Core
-- [ ] מודול Auth (JWT)
-- [ ] מודול Conversations
-- [ ] מודול Messages
-- [ ] מודול Canned Responses
+### Epic 2 – Backend Core (בתהליך)
+- [ ] מודול Auth (JWT) – בהמשך
+- [x] מודול Conversations (בסיסי – in-memory)
+- [x] מודול Messages (בסיסי – in-memory)
+- [x] מודול Canned Responses (בסיסי)
 - [ ] מודול Surveys
-- [ ] Health check
+- [x] Health check
 
 ### Epic 3 – Frontend Widget (לקוח)
 - [ ] כפתור צף + חלון צ'אט
@@ -45,45 +45,26 @@
 ### Epic 5 – Polish & Export
 - [ ] ייצוא תמלול (העתק + טקסט מעוצב)
 - [ ] תמיכה מלאה ב-RTL/LTR
+- [ ] חיבור PostgreSQL אמיתי
 - [ ] בדיקות בסיסיות
 - [ ] תיעוד API
 
-## 3. Work Packages (ספרינטים מוצעים)
+## 3. Work Packages
 
-### WP-01 – Foundation (Sprint 1)
-**מטרה:** שלד עובד + Docker + גרסה  
-**משך משוער:** 2–3 ימים  
-**תוצרים:**
-- מבנה תיקיות מלא
-- Next.js + NestJS רצים
-- Postgres ב-Docker
-- README מעודכן
-- הצגת Ver. / Build / Date
+### WP-01 – Foundation ✅ הושלם
+- מונורפו, Next.js, NestJS, Shared, Docker, VersionBadge
 
-### WP-02 – Backend Core (Sprint 2)
-**מטרה:** API בסיסי עובד  
-**משך משוער:** 3–4 ימים  
-**תוצרים:**
-- Auth + Conversations + Messages
-- Canned + Surveys
-- Postman / OpenAPI בסיסי
+### WP-02 – Backend Core (בתהליך)
+**סטטוס:** Controllers בסיסיים ל-Conversations / Messages / Canned מוכנים (in-memory).  
+הבא: Surveys + Auth + מעבר ל-PostgreSQL.
 
-### WP-03 – Widget (Sprint 3)
-**מטרה:** לקוח יכול לפתוח שיחה ולשלוח הודעות  
-**משך משוער:** 3 ימים
+### WP-03 – Widget
+### WP-04 – Agent Dashboard
+### WP-05 – Integration & Polish
 
-### WP-04 – Agent Dashboard (Sprint 4)
-**מטרה:** נציג יכול לנהל שיחות  
-**משך משוער:** 4–5 ימים
-
-### WP-05 – Integration & Polish (Sprint 5)
-**מטרה:** תמלול, סקר, RTL מלא, בדיקות  
-**משך משוער:** 2–3 ימים
-
-## 4. Definition of Done (כל משימה)
+## 4. Definition of Done
 - קוד נקי + TypeScript
 - אין באגים ידועים
 - גרסה מעודכנת
 - מסמכים מעודכנים
 - נדחף ל-Git
-- נבדק ידנית לפחות פעם אחת
