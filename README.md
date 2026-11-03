@@ -1,43 +1,39 @@
 # Chatty
 
-מערכת צ'אט תמיכה מקצועית – פשוטה, אלגנטית וממוקדת.
+מערכת צ'אט תמיכה מקצועית.
 
-**Ver. 0.2.0 | Build 005 | 03.11.2026**
+**Ver. 0.2.1 | Build 006 | 03.11.2026**
 
-## הרצה מהירה
+## הרצה
 ```bash
 npm install
-cd docker && docker compose up -d   # PostgreSQL (מוכן לשימוש עתידי)
-npm run dev:api    # http://localhost:3001
-npm run dev:web    # http://localhost:3000
+cd docker && docker compose up -d
+npm run dev:api   # :3001
+npm run dev:web   # :3000
 ```
 
-## מסכים פעילים
-| כתובת | תיאור |
-|-------|-------|
-| `/` | דף בית + ניווט |
-| `/widget` | וידג'ט לקוח (שיחה + סקר) |
-| `/agent` | לוח נציגים מלא |
+## מסכים
+- `/` – בית
+- `/widget` – וידג'ט לקוח
+- `/agent` – לוח נציגים
 
-## API עיקרי
-- `POST /conversations` – פתיחת שיחה
-- `GET  /conversations` – רשימה
-- `GET  /conversations/:id` – שיחה + הודעות
-- `POST /conversations/:id/close` – סגירה + תמלול
-- `POST /messages` – שליחת הודעה
-- `GET  /canned-responses`
-- `POST /surveys`
-- `GET  /health`
+## יכולות עובדות
+- פתיחת שיחה (מזוהה / אנונימי)
+- ריבוי שפות (he / en / ar / ru)
+- Polling 1.5–2 שניות
+- תגובות קבועות (Canned)
+- הערות פנימיות
+- סגירת שיחה + **תמלול מוכן להעתקה** ל-Dynamics/CRM
+- סקר לאחר סגירה
+- VersionBadge בכל מסך
 
-## מה עובד
-- ✅ Widget לקוח (שפות, אנונימי/מזוהה, Polling, סקר)
-- ✅ לוח נציגים (Inbox, Canned, הערות פנימיות, תמלול להעתקה)
-- ✅ VersionBadge בכל מסך
-- ✅ סגירת שיחה מייצרת תמלול מוכן ל-CRM / העתק-הדבק
+## API
+`GET/POST /conversations` · `GET /conversations/:id` · `POST /conversations/:id/close`  
+`POST /messages` · `GET /canned-responses` · `POST /surveys` · `GET /health`
 
 ## מסמכים
 [`docs/`](./docs/)
 
 ## סטטוס
-**Ver. 0.2.0** – ליבה פונקציונלית הושלמה (in-memory).  
-השלב הבא: PostgreSQL + Auth.
+ליבה פונקציונלית **הושלמה** (in-memory).  
+מוכן ל-demo מלא. השלב הבא: PostgreSQL + Auth.
