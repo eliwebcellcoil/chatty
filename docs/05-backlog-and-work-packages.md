@@ -1,21 +1,20 @@
-# Chatty – Backlog & Work Packages
-**Ver. 0.2.1 | Build 006 | 03.11.2026**
+# Chatty – Backlog
+**Ver. 0.2.2 | Build 007 | 03.11.2026**
 
-## הושלם
-- [x] WP-01 Foundation (מונורפו, Docker, Version)
-- [x] WP-02 Backend Core (Conversations, Messages, Canned, Surveys, Close+Transcript, Search)
-- [x] WP-03 Widget לקוח (שפות, אנונימי/מזוהה, Polling, סקר)
-- [x] WP-04 Agent Dashboard (Inbox, Canned, הערות פנימיות, תמלול להעתקה)
+## הושלם (MVP פונקציונלי)
+- [x] Foundation (מונורפו, Docker, Version)
+- [x] Backend: Conversations, Messages, Canned, Surveys, Close+Transcript, Search
+- [x] Widget לקוח מלא (שפות, אנונימי/מזוהה, Polling, סקר)
+- [x] Agent Dashboard (Inbox, פילטרים, חיפוש, Canned, הערות פנימיות, תמלול)
+- [x] VersionBadge בכל מסך
+- [x] תמלול מוכן להעתקה ל-CRM
 
-## נותר (Polish & Production)
-- [ ] חיבור PostgreSQL אמיתי (החלפת in-memory)
-- [ ] Auth JWT לנציגים
-- [ ] חיפוש UI בלוח הנציגים
-- [ ] כפתור צף / Embed script לאתר
-- [ ] PWA בסיסי
+## נותר לגרסאות הבאות
+- [ ] PostgreSQL (החלפת in-memory)
+- [ ] Auth JWT
+- [ ] Embed script / כפתור צף
+- [ ] PWA
 - [ ] בדיקות אוטומטיות
-- [ ] תיעוד OpenAPI
+- [ ] OpenAPI docs
 
-## הערות
-המערכת כבר שמישה ל-demo מלא:  
-לקוח פותח שיחה ב-`/widget` → נציג משיב ב-`/agent` → סגירה מייצרת תמלול מוכן להעתקה ל-CRM.
+המערכת **שמישה ל-demo מלא** כבר עכשיו.

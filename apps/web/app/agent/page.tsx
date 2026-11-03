@@ -30,15 +30,19 @@ export default function AgentDashboard() {
   const [canned, setCanned] = useState<{ id: string; title: string; content: string }[]>([]);
   const [transcript, setTranscript] = useState<string | null>(null);
   const [filter, setFilter] = useState<"all" | "open" | "closed">("open");
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
 
   const loadConversations = useCallback(async () => {
     try {
-      const res = await fetch(`${API_URL}/conversations`);
+      const params = new URLSearchParams();
+      if (filter !== "all") params.set("status", filter);
+      if (search.trim()) params.set("q", search.trim());
+      const res = await fetch(`${API_URL}/conversations?${params}`);
       const data = await res.json();
       setConversations(Array.isArray(data) ? data : []);
     } catch {}
-  }, []);
+  }, [filter, search]);
 
   const loadConversation = useCallback(async (id: string) => {
     try {
@@ -118,7 +122,13 @@ export default function AgentDashboard() {
           <span className="font-bold text-lg">Chatty</span>
           <span className="text-slate-400 text-sm">לוח נציגים</span>
         </div>
-        <div className="flex gap-2 text-xs">
+        <div className="flex items-center gap-2 text-xs">
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="חיפוש..."
+            className="bg-slate-800 text-white placeholder-slate-400 rounded-full px-3 py-1 w-32 outline-none focus:ring-1 focus:ring-slate-500"
+          />
           {(["open", "closed", "all"] as const).map((f) => (
             <button
               key={f}

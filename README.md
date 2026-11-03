@@ -2,38 +2,37 @@
 
 מערכת צ'אט תמיכה מקצועית.
 
-**Ver. 0.2.1 | Build 006 | 03.11.2026**
+**Ver. 0.2.2 | Build 007 | 03.11.2026**
 
 ## הרצה
 ```bash
 npm install
 cd docker && docker compose up -d
-npm run dev:api   # :3001
-npm run dev:web   # :3000
+npm run dev:api   # http://localhost:3001
+npm run dev:web   # http://localhost:3000
 ```
 
 ## מסכים
-- `/` – בית
-- `/widget` – וידג'ט לקוח
-- `/agent` – לוח נציגים
+| נתיב | תיאור |
+|------|-------|
+| `/` | בית + ניווט |
+| `/widget` | וידג'ט לקוח |
+| `/agent` | לוח נציגים |
 
-## יכולות עובדות
-- פתיחת שיחה (מזוהה / אנונימי)
-- ריבוי שפות (he / en / ar / ru)
-- Polling 1.5–2 שניות
-- תגובות קבועות (Canned)
+## יכולות
+- שיחה מזוהה / אנונימית
+- 4 שפות (he/en/ar/ru) + RTL
+- Polling
+- Canned Responses
 - הערות פנימיות
-- סגירת שיחה + **תמלול מוכן להעתקה** ל-Dynamics/CRM
-- סקר לאחר סגירה
-- VersionBadge בכל מסך
-
-## API
-`GET/POST /conversations` · `GET /conversations/:id` · `POST /conversations/:id/close`  
-`POST /messages` · `GET /canned-responses` · `POST /surveys` · `GET /health`
-
-## מסמכים
-[`docs/`](./docs/)
+- סגירה + **תמלול מוכן להעתקה** ל-Dynamics
+- סקר
+- חיפוש בלוח נציגים
+- Version בכל מסך
 
 ## סטטוס
-ליבה פונקציונלית **הושלמה** (in-memory).  
-מוכן ל-demo מלא. השלב הבא: PostgreSQL + Auth.
+**MVP פונקציונלי הושלם.**  
+מוכן לשימוש ולהדגמה.  
+המשך: PostgreSQL + Auth.
+
+מסמכים ב-[`docs/`](./docs/).
