@@ -1,5 +1,5 @@
 # Chatty – Backlog, Discovery & Work Packages
-**Ver. 0.1.2 | Build 003 | 03.11.2026**
+**Ver. 0.1.3 | Build 004 | 03.11.2026**
 
 ## 1. Discovery (מה כבר ברור)
 - דרישות עיקריות מוגדרות
@@ -23,11 +23,11 @@
 - [x] מודול Conversations (בסיסי – in-memory)
 - [x] מודול Messages (בסיסי – in-memory)
 - [x] מודול Canned Responses (בסיסי)
-- [ ] מודול Surveys
+- [x] מודול Surveys
 - [x] Health check
 
 ### Epic 3 – Frontend Widget (לקוח)
-- [ ] כפתור צף + חלון צ'אט
+- [x] כפתור צף + חלון צ'אט (בסיסי)
 - [ ] בחירת שפה
 - [ ] הזדהות / אנונימי
 - [ ] שליחת הודעות + Polling

@@ -3,6 +3,7 @@ import { HealthController } from "./health.controller";
 import { ConversationsController } from "./modules/conversations/conversations.controller";
 import { MessagesController } from "./modules/messages/messages.controller";
 import { CannedController } from "./modules/canned/canned.controller";
+import { SurveysController } from "./modules/surveys/surveys.controller";
 
 @Module({
   imports: [],
@@ -11,6 +12,7 @@ import { CannedController } from "./modules/canned/canned.controller";
     ConversationsController,
     MessagesController,
     CannedController,
+    SurveysController,
   ],
   providers: [],
 })
