@@ -15,14 +15,43 @@
 | [04-technical-design.md](./docs/04-technical-design.md) | עיצוב טכני מלא |
 | [05-backlog-and-work-packages.md](./docs/05-backlog-and-work-packages.md) | Backlog + חבילות עבודה |
 
+## מבנה הפרויקט
+```
+chatty/
+├── apps/
+│   ├── web/          # Next.js (Widget + Dashboard)
+│   └── api/          # NestJS Backend
+├── packages/
+│   └── shared/       # קוד משותף + גרסה
+├── docker/           # docker-compose (Postgres)
+└── docs/
+```
+
+## הרצה מקומית (פיתוח)
+```bash
+# התקנת תלויות
+npm install
+
+# הרצת מסד נתונים
+cd docker && docker compose up -d
+
+# Frontend
+npm run dev:web
+
+# Backend
+npm run dev:api
+```
+
+- Frontend: http://localhost:3000
+- API Health: http://localhost:3001/health
+
 ## עקרונות
 - ניהול מלא לפי Agile/Scrum
 - סנכרון מלא 100% בין קוד, מסמכים וגרסאות
 - עיצוב פשוט ואלגנטי
 - תמיכה מלאה בעברית (RTL) + אנגלית + ערבית + רוסית
-- Polling (1.5–2 שניות) במקום Real-time מלא
+- Polling (1.5–2 שניות)
 - העברת שיחה ל-Dynamics 365 רק בסוף השיחה
 
 ## סטטוס נוכחי
-איפיון + ארכיטקטורה ויזואלית + Backlog הושלמו.  
-מתחילים בפיתוח השלד (WP-01).
+WP-01 (Foundation) בתהליך – שלד מונורפו + גרסה + Docker מוכן.
