@@ -1,7 +1,6 @@
 import { Module, OnModuleInit, NestModule, MiddlewareConsumer } from "@nestjs/common";
 import { RateLimitMiddleware } from "./common/rate-limit.middleware";
 import { PrismaModule } from "./prisma/prisma.module";
-import { PrismaService } from "./prisma/prisma.service";
 import { HealthController } from "./health.controller";
 import { ConversationsController } from "./modules/conversations/conversations.controller";
 import { ConversationsService } from "./modules/conversations/conversations.service";
@@ -14,6 +13,8 @@ import { SurveysService } from "./modules/surveys/surveys.service";
 import { AuthController } from "./modules/auth/auth.controller";
 import { AuthService } from "./modules/auth/auth.service";
 import { AuthGuard } from "./modules/auth/auth.guard";
+import { QueueController } from "./modules/queue/queue.controller";
+import { QueueService } from "./modules/queue/queue.service";
 
 @Module({
   imports: [PrismaModule],
@@ -24,6 +25,7 @@ import { AuthGuard } from "./modules/auth/auth.guard";
     CannedController,
     SurveysController,
     AuthController,
+    QueueController,
   ],
   providers: [
     ConversationsService,
@@ -32,6 +34,7 @@ import { AuthGuard } from "./modules/auth/auth.guard";
     SurveysService,
     AuthService,
     AuthGuard,
+    QueueService,
   ],
 })
 export class AppModule implements OnModuleInit, NestModule {

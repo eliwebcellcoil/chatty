@@ -1,9 +1,14 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, Inject, forwardRef } from "@nestjs/common";
 import { PrismaService } from "../../prisma/prisma.service";
+import { QueueService } from "../queue/queue.service";
 
 @Injectable()
 export class ConversationsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    @Inject(forwardRef(() => QueueService))
+    private queue: QueueService,
+  ) {}
 
   async findAll(status?: string, q?: string) {
     const where: any = {};
@@ -41,7 +46,7 @@ export class ConversationsService {
     isAnonymous?: boolean;
     language?: string;
   }) {
-    return this.prisma.conversation.create({
+    const conv = await this.prisma.conversation.create({
       data: {
         customerName: data.customerName,
         customerEmail: data.customerEmail,
@@ -52,6 +57,17 @@ export class ConversationsService {
         status: "open",
       },
     });
+
+    // Auto-assign if routing mode is auto
+    try {
+      const mode = await this.queue.getRoutingMode();
+      if (mode === "auto") {
+        const result = await this.queue.autoAssign(conv.id);
+        if (result.assigned && result.conversation) return result.conversation;
+      }
+    } catch {}
+
+    return conv;
   }
 
   async close(id: string) {

@@ -1,8 +1,8 @@
 # Chatty
 
-מערכת צ'אט תמיכה מקצועית.
+מערכת צ'אט תמיכה מקצועית עם ניהול תורים.
 
-**Ver. 0.3.2 | Build 011 | 04.11.2026**
+**Ver. 0.4.0 | Build 013 | 04.11.2026**
 
 ## הרצה
 ```bash
@@ -11,20 +11,13 @@ cd apps/api && npm install && npx prisma generate && npx prisma db push && npm r
 cd apps/web && npm install && npm run dev
 ```
 
-| נתיב | תיאור |
-|------|-------|
-| `/widget` | וידג'ט לקוח |
-| `/agent/login` | התחברות נציג |
-| `/agent` | לוח נציגים |
+- Widget: http://localhost:3000/widget  
+- Agent: http://localhost:3000/agent/login  
+- **admin@chatty.local / admin123**
 
-**Admin ברירת מחדל:** `admin@chatty.local` / `admin123`
+## ניהול תורים
+- **תור כללי (pull)** – נציג מושך שיחות לפי קיבולת
+- **שיוך אוטומטי (auto)** – לפי עומס נציגים Online
+- העברה בין נציגים + סטטוס + קיבולת
 
-## Embed באתר
-ראה [docs/08-embed-guide.md](./docs/08-embed-guide.md)
-
-## התקדמות המלצות
-[docs/07-recommendations-progress.md](./docs/07-recommendations-progress.md)
-
-## סטטוס
-✅ PostgreSQL · Auth · Services · CI · Embed  
-הבא: Rate limiting, PWA, בדיקות
+פירוט: [docs/09-queue-and-routing.md](./docs/09-queue-and-routing.md)

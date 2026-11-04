@@ -8,14 +8,16 @@ datasource db {
 }
 
 model Agent {
-  id            String         @id @default(uuid())
-  name          String
-  email         String         @unique
-  passwordHash  String
-  role          String         @default("agent") // agent | admin
-  status        String         @default("offline") // online | offline | busy
-  createdAt     DateTime       @default(now())
-  conversations Conversation[]
+  id                  String         @id @default(uuid())
+  name                String
+  email               String         @unique
+  passwordHash        String
+  role                String         @default("agent") // agent | admin
+  status              String         @default("offline") // online | away | offline
+  maxConcurrentChats  Int            @default(3)
+  canHandleChat       Boolean        @default(true)
+  createdAt           DateTime       @default(now())
+  conversations       Conversation[]
 }
 
 model Conversation {
@@ -40,7 +42,7 @@ model Message {
   id             String       @id @default(uuid())
   conversationId String
   conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
-  senderType     String       // customer | agent | system
+  senderType     String
   content        String
   isInternal     Boolean      @default(false)
   createdAt      DateTime     @default(now())
@@ -64,4 +66,9 @@ model Survey {
   rating         Int
   comment        String?
   createdAt      DateTime     @default(now())
+}
+
+model AppSetting {
+  key   String @id
+  value String
 }
