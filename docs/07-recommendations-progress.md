@@ -1,14 +1,20 @@
-# Chatty – מעקב המלצות + תורים
-**Ver. 0.4.0 | Build 013 | 04.11.2026**
+# Chatty – מעקב 11 המלצות פיתוח
+**Ver. 0.5.0 | Build 014 | 04.11.2026**
 
-| נושא | סטטוס |
-|------|--------|
-| PostgreSQL | ✅ |
-| Auth JWT | ✅ |
-| תור כללי + משיכה | ✅ |
-| שיוך אוטומטי לפי עומס | ✅ |
-| העברה בין נציגים | ✅ |
-| קיבולת לנציג | ✅ |
-| סטטוס Online/Away/Offline | ✅ |
+| # | המלצה | סטטוס |
+|---|--------|--------|
+| 1 | PostgreSQL (Prisma) | ✅ |
+| 2 | Auth JWT | ✅ |
+| 3 | הפרדת שכבות Controller→Service | ✅ |
+| 4 | CI/CD GitHub Actions | ✅ |
+| 5 | Embed Script | ✅ |
+| 6 | Dynamics 365 | 🟡 תמלול מוכן; API מלא – בהמשך |
+| 7 | Rate Limiting | ✅ |
+| 8 | PWA | ✅ manifest בסיסי |
+| 9 | לוגים + Health | 🔄 Health + DB check |
+| 10 | בדיקות אוטומטיות | ⏳ ממתין |
+| 11 | סביבות dev/staging/prod | 🔄 .env.example |
 
-ראה גם: [09-queue-and-routing.md](./09-queue-and-routing.md)
+## תוספות שבוצעו מעבר להמלצות
+- ניהול תורים (pull + auto + transfer)
+- RBAC + מודול Admin מלא
