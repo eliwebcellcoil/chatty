@@ -1,24 +1,35 @@
 import { Controller, Get } from "@nestjs/common";
-import { getVersionString, APP_VERSION, BUILD_NUMBER, BUILD_DATE } from "../../../packages/shared/src";
+import { PrismaService } from "./prisma/prisma.service";
+
+const APP_VERSION = "0.3.0";
+const BUILD_NUMBER = "009";
+const BUILD_DATE = "04.11.2026";
 
 @Controller()
 export class HealthController {
+  constructor(private prisma: PrismaService) {}
+
   @Get("health")
-  health() {
+  async health() {
+    let db = "unknown";
+    try {
+      await this.prisma.$queryRaw`SELECT 1`;
+      db = "ok";
+    } catch {
+      db = "error";
+    }
     return {
       status: "ok",
       version: APP_VERSION,
       build: BUILD_NUMBER,
       date: BUILD_DATE,
-      message: getVersionString(),
+      database: db,
+      message: `Chatty Ver. ${APP_VERSION} | Build ${BUILD_NUMBER} | ${BUILD_DATE}`,
     };
   }
 
   @Get()
   root() {
-    return {
-      name: "Chatty API",
-      ...this.health(),
-    };
+    return this.health();
   }
 }

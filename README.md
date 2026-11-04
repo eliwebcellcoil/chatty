@@ -2,37 +2,34 @@
 
 מערכת צ'אט תמיכה מקצועית.
 
-**Ver. 0.2.2 | Build 007 | 03.11.2026**
+**Ver. 0.3.0 | Build 009 | 04.11.2026**
 
 ## הרצה
 ```bash
-npm install
+# 1. מסד נתונים
 cd docker && docker compose up -d
-npm run dev:api   # http://localhost:3001
-npm run dev:web   # http://localhost:3000
+
+# 2. API
+cd apps/api
+cp .env.example .env   # או השתמש ב-.env הקיים
+npm install
+npx prisma generate
+npx prisma db push
+npm run start:dev      # :3001
+
+# 3. Web
+cd apps/web
+npm install
+npm run dev            # :3000
 ```
 
 ## מסכים
-| נתיב | תיאור |
-|------|-------|
-| `/` | בית + ניווט |
-| `/widget` | וידג'ט לקוח |
-| `/agent` | לוח נציגים |
-
-## יכולות
-- שיחה מזוהה / אנונימית
-- 4 שפות (he/en/ar/ru) + RTL
-- Polling
-- Canned Responses
-- הערות פנימיות
-- סגירה + **תמלול מוכן להעתקה** ל-Dynamics
-- סקר
-- חיפוש בלוח נציגים
-- Version בכל מסך
+- `/widget` – לקוח
+- `/agent` – נציגים
 
 ## סטטוס
-**MVP פונקציונלי הושלם.**  
-מוכן לשימוש ולהדגמה.  
-המשך: PostgreSQL + Auth.
+- ✅ MVP + שכבות Service
+- 🔄 PostgreSQL (Prisma) – קוד מוכן, יש להריץ `prisma db push`
+- הבא: Auth JWT
 
-מסמכים ב-[`docs/`](./docs/).
+מסמכים: [`docs/`](./docs/)

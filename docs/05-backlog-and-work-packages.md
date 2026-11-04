@@ -1,20 +1,14 @@
 # Chatty – Backlog
-**Ver. 0.2.2 | Build 007 | 03.11.2026**
+**Ver. 0.3.0 | Build 009 | 04.11.2026**
 
-## הושלם (MVP פונקציונלי)
-- [x] Foundation (מונורפו, Docker, Version)
-- [x] Backend: Conversations, Messages, Canned, Surveys, Close+Transcript, Search
-- [x] Widget לקוח מלא (שפות, אנונימי/מזוהה, Polling, סקר)
-- [x] Agent Dashboard (Inbox, פילטרים, חיפוש, Canned, הערות פנימיות, תמלול)
-- [x] VersionBadge בכל מסך
-- [x] תמלול מוכן להעתקה ל-CRM
+## הושלם
+- [x] MVP פונקציונלי (Widget + Agent + Transcript)
+- [x] הפרדת שכבות Controller → Service
+- [x] Prisma Schema + Services (PostgreSQL)
 
-## נותר לגרסאות הבאות
-- [ ] PostgreSQL (החלפת in-memory)
+## בתהליך
+- [ ] הרצת migrate / db push + בדיקה מול Docker Postgres
 - [ ] Auth JWT
-- [ ] Embed script / כפתור צף
-- [ ] PWA
-- [ ] בדיקות אוטומטיות
-- [ ] OpenAPI docs
 
-המערכת **שמישה ל-demo מלא** כבר עכשיו.
+## הבא
+- CI/CD, Embed, PWA, Rate limit, בדיקות

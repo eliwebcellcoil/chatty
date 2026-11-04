@@ -8,7 +8,9 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 type Conversation = {
   id: string;
   status: string;
-  customerInfo: { name?: string; isAnonymous: boolean };
+  customerInfo?: { name?: string; isAnonymous: boolean };
+  customerName?: string;
+  isAnonymous?: boolean;
   language: string;
   createdAt: string;
   closedAt?: string;
@@ -160,9 +162,9 @@ export default function AgentDashboard() {
             >
               <div className="flex items-center justify-between">
                 <span className="font-medium text-sm truncate">
-                  {c.customerInfo?.isAnonymous
+                  {(c.isAnonymous ?? c.customerInfo?.isAnonymous)
                     ? "אנונימי"
-                    : c.customerInfo?.name || "לקוח"}
+                    : (c.customerName || c.customerInfo?.name || "לקוח")}
                 </span>
                 <span
                   className={`text-[10px] px-2 py-0.5 rounded-full ${
@@ -193,9 +195,9 @@ export default function AgentDashboard() {
               <div className="px-4 py-3 border-b border-slate-200 bg-white flex items-center justify-between">
                 <div>
                   <p className="font-medium">
-                    {selected?.customerInfo?.isAnonymous
+                    {(selected?.isAnonymous ?? selected?.customerInfo?.isAnonymous)
                       ? "אנונימי"
-                      : selected?.customerInfo?.name || "לקוח"}
+                      : (selected?.customerName || selected?.customerInfo?.name || "לקוח")}
                   </p>
                   <p className="text-xs text-slate-400">{selectedId.slice(0, 8)}…</p>
                 </div>

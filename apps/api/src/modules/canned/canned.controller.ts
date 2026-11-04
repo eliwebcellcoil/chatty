@@ -1,13 +1,12 @@
 import { Controller, Get, Query } from "@nestjs/common";
-import { store } from "../../store";
+import { CannedService } from "./canned.service";
 
 @Controller("canned-responses")
 export class CannedController {
+  constructor(private readonly service: CannedService) {}
+
   @Get()
   findAll(@Query("language") language?: string) {
-    if (language) {
-      return store.canned.filter((c) => c.language === language);
-    }
-    return store.canned;
+    return this.service.findAll(language);
   }
 }

@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Agent {
+  id            String         @id @default(uuid())
+  name          String
+  email         String         @unique
+  passwordHash  String
+  role          String         @default("agent") // agent | admin
+  status        String         @default("offline") // online | offline | busy
+  createdAt     DateTime       @default(now())
+  conversations Conversation[]
+}
+
+model Conversation {
+  id              String    @id @default(uuid())
+  status          String    @default("open") // open | pending | closed
+  customerName    String?
+  customerEmail   String?
+  customerPhone   String?
+  customerId      String?
+  isAnonymous     Boolean   @default(true)
+  language        String    @default("he")
+  tags            String[]  @default([])
+  assignedAgentId String?
+  assignedAgent   Agent?    @relation(fields: [assignedAgentId], references: [id])
+  createdAt       DateTime  @default(now())
+  closedAt        DateTime?
+  messages        Message[]
+  survey          Survey?
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderType     String       // customer | agent | system
+  content        String
+  isInternal     Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+
+  @@index([conversationId])
+}
+
+model CannedResponse {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  language  String   @default("he")
+  category  String?
+  createdAt DateTime @default(now())
+}
+
+model Survey {
+  id             String       @id @default(uuid())
+  conversationId String       @unique
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  rating         Int
+  comment        String?
+  createdAt      DateTime     @default(now())
+}
