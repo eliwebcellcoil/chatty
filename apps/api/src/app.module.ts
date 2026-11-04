@@ -15,6 +15,8 @@ import { AuthService } from "./modules/auth/auth.service";
 import { AuthGuard } from "./modules/auth/auth.guard";
 import { QueueController } from "./modules/queue/queue.controller";
 import { QueueService } from "./modules/queue/queue.service";
+import { AdminController } from "./modules/admin/admin.controller";
+import { AdminService } from "./modules/admin/admin.service";
 
 @Module({
   imports: [PrismaModule],
@@ -26,6 +28,7 @@ import { QueueService } from "./modules/queue/queue.service";
     SurveysController,
     AuthController,
     QueueController,
+    AdminController,
   ],
   providers: [
     ConversationsService,
@@ -35,6 +38,7 @@ import { QueueService } from "./modules/queue/queue.service";
     AuthService,
     AuthGuard,
     QueueService,
+    AdminService,
   ],
 })
 export class AppModule implements OnModuleInit, NestModule {

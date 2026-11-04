@@ -17,10 +17,10 @@ export class AuthService {
       const passwordHash = await bcrypt.hash("admin123", 10);
       await this.prisma.agent.create({
         data: {
-          name: "מנהל מערכת",
+          name: "אדמין על",
           email: "admin@chatty.local",
           passwordHash,
-          role: "admin",
+          role: "super_admin",
           status: "online",
         },
       });

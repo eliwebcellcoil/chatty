@@ -1,23 +1,23 @@
 # Chatty
 
-מערכת צ'אט תמיכה מקצועית עם ניהול תורים.
+מערכת צ'אט תמיכה מקצועית.
 
-**Ver. 0.4.0 | Build 013 | 04.11.2026**
+**Ver. 0.5.0 | Build 014 | 04.11.2026**
 
-## הרצה
-```bash
-cd docker && docker compose up -d
-cd apps/api && npm install && npx prisma generate && npx prisma db push && npm run start:dev
-cd apps/web && npm install && npm run dev
-```
+## מסכים
+| נתיב | תיאור |
+|------|-------|
+| `/widget` | לקוח |
+| `/agent/login` | התחברות |
+| `/agent` | לוח נציגים + תורים |
+| `/admin` | אדמין: אנליטיקה, נציגים, תוכן, הרשאות |
 
-- Widget: http://localhost:3000/widget  
-- Agent: http://localhost:3000/agent/login  
-- **admin@chatty.local / admin123**
+**admin@chatty.local / admin123** (אדמין על)
 
-## ניהול תורים
-- **תור כללי (pull)** – נציג מושך שיחות לפי קיבולת
-- **שיוך אוטומטי (auto)** – לפי עומס נציגים Online
-- העברה בין נציגים + סטטוס + קיבולת
+## מודולים
+- תורים (pull + auto)
+- RBAC: super_admin / admin / agent / content
+- ניהול תוכן (Canned)
+- אנליטיקה בסיסית
 
-פירוט: [docs/09-queue-and-routing.md](./docs/09-queue-and-routing.md)
+מסמכים: [`docs/`](./docs/) · RBAC: [`docs/10-rbac-and-admin.md`](./docs/10-rbac-and-admin.md)
