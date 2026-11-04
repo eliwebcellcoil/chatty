@@ -2,7 +2,7 @@
 
 מערכת צ'אט תמיכה מקצועית.
 
-**Ver. 0.3.0 | Build 009 | 04.11.2026**
+**Ver. 0.3.1 | Build 010 | 04.11.2026**
 
 ## הרצה
 ```bash
@@ -30,6 +30,6 @@ npm run dev            # :3000
 ## סטטוס
 - ✅ MVP + שכבות Service
 - 🔄 PostgreSQL (Prisma) – קוד מוכן, יש להריץ `prisma db push`
-- הבא: Auth JWT
+- ✅ Auth JWT בסיסי
 
 מסמכים: [`docs/`](./docs/)

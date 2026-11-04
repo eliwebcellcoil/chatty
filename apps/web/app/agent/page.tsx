@@ -34,6 +34,13 @@ export default function AgentDashboard() {
   const [filter, setFilter] = useState<"all" | "open" | "closed">("open");
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const token = localStorage.getItem("chatty_token");
+    if (!token) {
+      window.location.href = "/agent/login";
+    }
+  }, []);
+
 
   const loadConversations = useCallback(async () => {
     try {
@@ -123,6 +130,16 @@ export default function AgentDashboard() {
         <div className="flex items-center gap-3">
           <span className="font-bold text-lg">Chatty</span>
           <span className="text-slate-400 text-sm">לוח נציגים</span>
+          <button
+            onClick={() => {
+              localStorage.removeItem("chatty_token");
+              localStorage.removeItem("chatty_agent");
+              window.location.href = "/agent/login";
+            }}
+            className="text-xs text-slate-400 hover:text-white mr-2"
+          >
+            יציאה
+          </button>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <input
