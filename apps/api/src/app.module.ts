@@ -17,6 +17,7 @@ import { QueueController } from "./modules/queue/queue.controller";
 import { QueueService } from "./modules/queue/queue.service";
 import { AdminController } from "./modules/admin/admin.controller";
 import { AdminService } from "./modules/admin/admin.service";
+import { ShiftService } from "./modules/admin/shift.service";
 
 @Module({
   imports: [PrismaModule],
@@ -39,6 +40,7 @@ import { AdminService } from "./modules/admin/admin.service";
     AuthGuard,
     QueueService,
     AdminService,
+    ShiftService,
   ],
 })
 export class AppModule implements OnModuleInit, NestModule {

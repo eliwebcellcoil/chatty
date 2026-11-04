@@ -1,5 +1,5 @@
 # Chatty – אינדקס תיעוד מלא
-**Ver. 0.5.0 | Build 014 | 04.11.2026**  
+**Ver. 0.5.1 | Build 015 | 04.11.2026**  
 **ריפו:** https://github.com/eliwebcellcoil/chatty
 
 מסמך זה הוא נקודת הכניסה לכל מי שעובד על הקוד (כולל מערכות אוטומטיות).
@@ -20,6 +20,7 @@
 | [09-queue-and-routing.md](./09-queue-and-routing.md) | תורים וניתוב |
 | [10-rbac-and-admin.md](./10-rbac-and-admin.md) | תפקידים, הרשאות, Admin |
 | [11-system-map.md](./11-system-map.md) | מפת מערכת מלאה (למפתחים/סוכנים) |
+| [12-e2e-checklist.md](./12-e2e-checklist.md) | בדיקת E2E + מנהל משמרת |
 
 ## סטטוס מוצר נוכחי
 - MVP פונקציונלי ✅

@@ -32,6 +32,13 @@ export default function HomePage() {
             <p className="font-medium text-slate-800">ניהול (Admin)</p>
             <p className="text-sm text-slate-500">נציגים · תוכן · אנליטיקה · הרשאות</p>
           </Link>
+          <Link
+            href="/shift"
+            className="block rounded-xl border border-slate-200 bg-white px-6 py-4 text-right shadow-sm hover:border-slate-400 transition"
+          >
+            <p className="font-medium text-slate-800">מנהל משמרת</p>
+            <p className="text-sm text-slate-500">תור · עומס נציגים · KPI יומי</p>
+          </Link>
         </div>
       </div>
       <VersionBadge />

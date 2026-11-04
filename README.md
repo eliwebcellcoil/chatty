@@ -2,7 +2,7 @@
 
 מערכת צ'אט תמיכה מקצועית – פשוטה, אלגנטית, עם תורים ו-RBAC.
 
-**Ver. 0.5.0 | Build 014 | 04.11.2026**
+**Ver. 0.5.1 | Build 015 | 04.11.2026**
 
 ## תיעוד מלא
 **התחל כאן:** [`docs/00-INDEX.md`](./docs/00-INDEX.md)
@@ -35,6 +35,7 @@ cd apps/web && npm install && npm run dev
 | `/agent/login` | התחברות |
 | `/agent` | לוח נציגים + תורים |
 | `/admin` | אנליטיקה · נציגים · תוכן · הרשאות |
+| `/shift` | **מנהל משמרת** – תור, עומס, KPI |
 
 **admin@chatty.local / admin123** (super_admin)
 

@@ -12,6 +12,7 @@ import {
   ForbiddenException,
 } from "@nestjs/common";
 import { AdminService } from "./admin.service";
+import { ShiftService } from "./shift.service";
 import { AuthService } from "../auth/auth.service";
 
 // Inline permission check (shared package may not be resolved at runtime the same way)
@@ -29,6 +30,7 @@ const ROLE_PERMS: Record<string, string[]> = {
 export class AdminController {
   constructor(
     private readonly admin: AdminService,
+    private readonly shift: ShiftService,
     private readonly auth: AuthService
   ) {}
 
@@ -111,6 +113,13 @@ export class AdminController {
   analytics(@Headers("authorization") auth?: string) {
     this.require(auth, "analytics:view");
     return this.admin.getAnalytics();
+  }
+
+  // Shift supervisor dashboard
+  @Get("shift")
+  shiftOverview(@Headers("authorization") auth?: string) {
+    this.require(auth, "analytics:view");
+    return this.shift.getShiftOverview();
   }
 
   // Roles reference
