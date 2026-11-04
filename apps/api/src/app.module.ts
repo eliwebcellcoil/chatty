@@ -1,4 +1,5 @@
-import { Module, OnModuleInit } from "@nestjs/common";
+import { Module, OnModuleInit, NestModule, MiddlewareConsumer } from "@nestjs/common";
+import { RateLimitMiddleware } from "./common/rate-limit.middleware";
 import { PrismaModule } from "./prisma/prisma.module";
 import { PrismaService } from "./prisma/prisma.service";
 import { HealthController } from "./health.controller";
@@ -33,10 +34,14 @@ import { AuthGuard } from "./modules/auth/auth.guard";
     AuthGuard,
   ],
 })
-export class AppModule implements OnModuleInit {
+export class AppModule implements OnModuleInit, NestModule {
   constructor(private auth: AuthService) {}
 
   async onModuleInit() {
     await this.auth.ensureDefaultAdmin();
+  }
+
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(RateLimitMiddleware).forRoutes("*");
   }
 }

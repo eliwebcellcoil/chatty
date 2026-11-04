@@ -1,24 +1,20 @@
 # Chatty – מעקב המלצות פיתוח
-**Ver. 0.3.2 | Build 011 | 04.11.2026**
+**Ver. 0.3.3 | Build 012 | 04.11.2026**
 
 | # | המלצה | סטטוס |
 |---|--------|--------|
 | 1 | PostgreSQL (Prisma) | ✅ |
 | 2 | Auth JWT | ✅ |
 | 3 | הפרדת שכבות | ✅ |
-| 4 | CI/CD GitHub Actions | ✅ `.github/workflows/ci.yml` |
-| 5 | Embed Script / כפתור צף | ✅ `public/chatty-widget.js` + מדריך |
-| 6 | Dynamics 365 | ממתין (תמלול כבר מוכן) |
-| 7 | Rate Limiting | הבא |
-| 8 | PWA | ממתין |
-| 9 | לוגים + Health | 🔄 חלקי |
+| 4 | CI/CD | ✅ |
+| 5 | Embed Script | ✅ |
+| 6 | Dynamics 365 | מוכן ברמת תמלול (API עתידי) |
+| 7 | Rate Limiting | ✅ 120 req/min ל-IP |
+| 8 | PWA | ✅ manifest בסיסי |
+| 9 | לוגים + Health | 🔄 Health + DB check |
 | 10 | בדיקות אוטומטיות | ממתין |
-| 11 | סביבות | ממתין |
+| 11 | סביבות | ממתין (.env.example קיים) |
 
-## הוראות הרצה (PostgreSQL)
-```bash
-cd docker && docker compose up -d
-cd apps/api && npm install && npx prisma generate && npx prisma db push && npm run start:dev
-cd apps/web && npm install && npm run dev
-```
-Admin: admin@chatty.local / admin123
+## סיכום
+רוב ההמלצות הקריטיות **הושלמו**.  
+נותר: בדיקות אוטומטיות, לוגים מתקדמים, חיבור Dynamics אמיתי, וסביבות מלאות.

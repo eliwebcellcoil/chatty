@@ -4,6 +4,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Chatty",
   description: "Professional support chat",
+  manifest: "/manifest.json",
+  themeColor: "#1e293b",
 };
 
 export default function RootLayout({
